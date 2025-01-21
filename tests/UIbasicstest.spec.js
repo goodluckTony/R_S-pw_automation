@@ -1,9 +1,27 @@
 const {test, expect} = require('@playwright/test')
 
-test/* ".only" to run only this test */("Browser context Playwright test", async ({browser}) => {
+test.only("Browser context Playwright test", async ({browser}) => {
+
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto("https://rahulshettyacademy.com/loginpagePractice/");
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+  console.log(await page.title());
+
+  const userName = await page.locator("#username");
+  const signIn = await page.locator("#signInBtn");
+
+  await userName.fill("rahulshetty");
+  await page.fill("[type='password']", "learning");
+  await signIn.click();
+  
+  console.log(await page.locator("[style*='block']").textContent("Incorrect"));
+  await page.locator("[style*='block']").textContent("Incorrect");
+  await userName.fill("");
+  await userName.fill("rahulshettyacademy");
+  await signIn.click();
+  console.log(await page.locator(".card-body a").nth(0).textContent(""));
+
+
 
 });
 
