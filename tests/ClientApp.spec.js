@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
-const exp = require("constants");
+// const exp = require("constants");
 
-test("Browser context-validating error login", async ({ page }) => {
+test("Web client app login", async ({ page }) => {
   const prodName = "Banarsi Saree";
   const products = page.locator(".card-body");
   const userEmail = "workablesideofthemoon@gmail.com";
